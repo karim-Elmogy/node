@@ -38,6 +38,8 @@ const users = [
   
 ];
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
@@ -56,7 +58,7 @@ app.get("/about", (req, res) => {
 
 
 
-app.post("/addUser",express.json(),(req,res)=>{
+app.post("/addUser",(req,res)=>{
   // req.on((cunk)=>{
   //   console.log(cunk);
   // });
@@ -79,7 +81,7 @@ app.post("/addUser",express.json(),(req,res)=>{
 });
 
 
-app.delete("/delUser",express.json(),(req,res)=>{
+app.delete("/delUser",(req,res)=>{
 
   let index = users.findIndex((elm)=>elm.Email==req.body.Email);
 
@@ -94,7 +96,7 @@ app.delete("/delUser",express.json(),(req,res)=>{
 });
 
 
-app.put("/update",express.json(),(req,res)=>{
+app.put("/update",(req,res)=>{
 
   const {name,Email}=req.body;
   let index = users.findIndex((elm)=>elm.Email==req.body.Email);
