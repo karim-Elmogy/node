@@ -63,6 +63,26 @@ app.get("/about", (req, res) => {
 });
 
 
+
+app.post("/addUser",(req,res)=>{
+  
+  res.send("User Add Sussessfully");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.listen(3000, () => {
   console.log("Server Is Running .... ");
 });
