@@ -35,15 +35,7 @@ const users = [
   { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
   { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
   { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
+  
 ];
 
 app.get("/", (req, res) => {
@@ -64,8 +56,13 @@ app.get("/about", (req, res) => {
 
 
 
-app.post("/addUser",(req,res)=>{
-  
+app.post("/addUser",express.json(),(req,res)=>{
+  // req.on((cunk)=>{
+  //   console.log(cunk);
+  // });
+
+  users.push(req.body);
+  console.log(req.body);
   res.send("User Add Sussessfully");
 });
 
