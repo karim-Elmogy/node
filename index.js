@@ -61,9 +61,21 @@ app.post("/addUser",express.json(),(req,res)=>{
   //   console.log(cunk);
   // });
 
-  users.push(req.body);
-  console.log(req.body);
-  res.send("User Add Sussessfully");
+  // console.log(req.body);
+  
+  // users.push(req.body);
+  // res.send("User Add Sussessfully");
+
+  const {Email}=req.body;
+  let user=users.find((elm)=>elm.Email==Email)
+
+  if(user){
+    res.json({message:"Email already exists"})
+  }else{
+    users.push(req.body)
+    res.json({message:"User Add Sussessfully"});
+  }
+
 });
 
 
