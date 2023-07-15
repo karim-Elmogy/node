@@ -79,7 +79,21 @@ app.post("/addUser",express.json(),(req,res)=>{
 });
 
 
+app.delete("/delUser",express.json(),(req,res)=>{
 
+  let index = users.findIndex((elm)=>elm.Email==req.body.Email);
+
+  // console.log(index);
+  if(index<0){
+    res.json({message:"User Not Found"});
+  }else{
+    let DeleteUser = users.splice(index,1);
+    res.json({DeleteUser,message:"User Deleted Sussessfully"})
+  }
+
+
+
+});
 
 
 
