@@ -30,11 +30,11 @@ const app = express();
 
 const users = [
   { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
-  { name: "Karim Elmogy", Email: "kimo72636@gmail.com", Age: "24" },
+  { name: "Karim Elmogy", Email: "kimo726367@gmail.com", Age: "24" },
+  { name: "Karim Elmogy", Email: "kimo726365@gmail.com", Age: "24" },
+  { name: "Karim Elmogy", Email: "kimo726368@gmail.com", Age: "24" },
+  { name: "Karim Elmogy", Email: "kimo726363@gmail.com", Age: "24" },
+  { name: "Karim Elmogy", Email: "kimo726360@gmail.com", Age: "24" },
   
 ];
 
@@ -91,7 +91,20 @@ app.delete("/delUser",express.json(),(req,res)=>{
     res.json({DeleteUser,message:"User Deleted Sussessfully"})
   }
 
+});
 
+
+app.put("/update",express.json(),(req,res)=>{
+
+  const {name,Email}=req.body;
+  let index = users.findIndex((elm)=>elm.Email==req.body.Email);
+  
+  if(index<0){
+    res.json({message:"User Not Found"});
+  }else{
+    let user = users[index].name=req.body.name;
+    res.json({user,message:"User Update Sussessfully"})
+  }
 
 });
 
